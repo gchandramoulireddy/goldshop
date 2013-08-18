@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  address: MyText
+  grams: 
+  wastage: 
+  gram_amt: 
+  discount: 
+  total: 
+
+two:
+  name: MyString
+  address: MyText
+  grams: 
+  wastage: 
+  gram_amt: 
+  discount: 
+  total: 

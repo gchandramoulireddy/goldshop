@@ -1,0 +1,50 @@
+<% form_for(@invoice) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :address %><br />
+    <%= f.text_area :address, :rows => 3 %>
+  </p>
+  <p>
+    <%= f.label :grams %><br />
+    <%= f.text_field :grams, :class => "calc" %>
+  </p>
+  <p>
+    <%= f.label :wastage %><br />
+    <%= f.text_field :wastage, :class => "calc" %>
+  </p>
+  <p>
+    <%= f.label :gram_amt %><br />
+    <%= f.text_field :gram_amt, :class => "calc" %>
+  </p>
+  <p>
+    <%= f.label :discount %><br />
+    <%= f.text_field :discount, :class => "calc" %>
+  </p>
+  <p>
+    <%= f.label :total %><br />
+    <%= f.text_field :total, :readonly => true %>
+  </p>
+  <p>
+    <%= f.submit 'Save' %>
+  </p>
+<% end %>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $(".calc").change(function(){
+    var grm = parseFloat($("#invoice_grams").val());
+    var wast = parseFloat($("#invoice_wastage").val());
+    var grm_amt = parseFloat($("#invoice_gram_amt").val());
+    var disc = parseFloat($("#invoice_discount").val());
+    var tot = (grm + (grm * (wast/100))) * grm_amt - disc
+    $("#invoice_total").val(tot);
+  });
+});
+ 
+
+</script>
